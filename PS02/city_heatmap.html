@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LA Crime</title>
+</head>
+<h1>
+    The chart below shows crime in Central LA in 2017.
+</h1>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+
+<script src="la_crime.json" >
+    //collected data from https://data.lacity.org/A-Safe-City/Crime-Data-from-2010-to-Present/y8tr-7khq
+</script>
+
+<div id="map-canvas" style="height:600px;width:800px"></div>
+
+<script type="text/javascript">
+
+function point(crime){
+    var point = {};
+
+    point.latitude = crime[25][0];
+    point.longitude = crime[25][1];
+
+    return point;
+}
+
+var points = laCrime.data.map(point);
+
+</script>
+<script src="ps02_heatmap.js"></script>
+<h2>
+    <a href="../index.html">Home</a>
+</h2>
+</html>
